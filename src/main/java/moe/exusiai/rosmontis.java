@@ -71,8 +71,6 @@ public class Rosmontis {
     public static void updateLive(String liveurl) {
         Bot bot = Bot.Companion.getInstance(Config.accountid).getBot();
         Contact contact = bot.getGroup(Config.group);
-        MessageChainBuilder messageChainBuilder = new MessageChainBuilder();
-        messageChainBuilder.append(new PlainText(latestdynamic.toString()+"\n直播地址: ")).append(liveurl);
-        contact.sendMessage(messageChainBuilder.build());
+        contact.sendMessage(latestdynamic.append("\n直播地址: ").append(liveurl).build());
     }
 }
